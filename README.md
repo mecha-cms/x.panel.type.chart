@@ -1,5 +1,5 @@
-Chart for [Panel](https://github.com/mecha-cms/x.panel)
-=======================================================
+Chart Extension for Mecha&rsquo;s [Panel](https://github.com/mecha-cms/x.panel)
+===============================================================================
 
 > Chart GUI for the panel extension.
 
