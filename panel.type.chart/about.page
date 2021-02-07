@@ -38,8 +38,46 @@ These chart types are available for use.
 ]
 ~~~
 
-State data is the same as the configuration data you will find in the documentation page of [Chart.js](https://www.chartjs.org/docs/latest)
+State data is for the configuration data that you will find in the documentation page of [Chart.js](https://www.chartjs.org/docs/latest)
 
-You don’t need to declare the chart type back in the state data when using specific chart type names.
+You don’t need to declare the chart type back in the `state` data when using specific chart type names. Several helper properties are available to make it easier for you to declare the data in the `state` property:
 
-An example page to display the chart is available at the following [link](http://127.0.0.1/panel/::g::/.test/chart).
+ - `grid` → Determine the scale grid factor.
+ - `legend` → Determine the legend visibility and position.
+ - `lot` → Determine the chart data-set values.
+ - `max` → Determine the maximum scale in the chart.
+ - `min` → Determine the minimum scale in the chart.
+ - `set` → Determine the data-set labels (in the line chart, this will becomes the column names).
+ - `step` → Determine the scale step size.
+ - `title` → Determine the chart title.
+
+~~~ .php
+[
+    'set' => ['Data 1', 'Data 2', 'Data 3'],
+    'legend' => ['side' => 'right'],
+    'title' => 'Bar Chart',
+    'type' => 'chart/bar',
+    'min' => 0,
+    'max' => 50,
+    'lot' => [
+        0 => [
+            'title' => 'Subject 1',
+            'values' => [16, 4, 7], // Values for “Data 1”, “Data 2”, and “Data 3”
+            'color' => '#ff0000'
+        ],
+        1 => [
+            'title' => 'Subject 2',
+            'values' => [3, 1, 18],
+            'color' =>
+        ],
+        2 => [
+            'title' => 'Subject 3',
+            'values' => [6, 11, 8],
+            'color' =>
+        ]
+    ],
+    'stack' => 10
+]
+~~~
+
+An example page that displays the available charts is available at the following [link](http://127.0.0.1/panel/::g::/.test/charts).
