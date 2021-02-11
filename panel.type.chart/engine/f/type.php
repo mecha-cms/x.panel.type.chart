@@ -3,7 +3,6 @@
 function chart(array $value, $key) {
     extract($GLOBALS, \EXTR_SKIP);
     $id = 'chart:' . $key;
-    $path = \stream_resolve_include_path(__DIR__ . \DS . '..' . \DS . '..' . \DS . 'lot' . \DS . 'asset');
     $state = $value['state'] ?? [];
     $rgba = static function($hex, $a = 1) {
         if (!$hex) {
@@ -67,7 +66,6 @@ function chart(array $value, $key) {
     }
     if (!empty($value['set'])) {
         foreach ($value['set'] as $v) {
-            // No format in string
             if (\is_array($v) && isset($v[0]) && false === \strpos($v[0], '%')) {
                 $state['data']['labels'][] = \map($v, function($vv) {
                     return \i(...((array) $vv));
@@ -91,35 +89,6 @@ function chart(array $value, $key) {
     }
     if (!empty($state['options'])) {
         $state['options']['responsive'] = true;
-    }
-    $z = \defined("\\DEBUG") && \DEBUG ? '.' : '.min.';
-    if (!isset($_['asset']['panel.type.chart:0'])) {
-        $_['asset']['panel.type.chart:0'] = [
-            'id' => false,
-            'path' => $path . \DS . 'css' . \DS . 'index' . \DS . 'chart' . $z . 'css',
-            'stack' => 20.1
-        ];
-    }
-    if (!isset($_['asset']['panel.type.chart:1'])) {
-        $_['asset']['panel.type.chart:1'] = [
-            'id' => false,
-            'path' => $path . \DS . 'js' . \DS . 'index' . \DS . 'chart' . $z . 'js',
-            'stack' => 20.1
-        ];
-    }
-    if (!isset($_['asset']['panel.type.chart:2'])) {
-        $_['asset']['panel.type.chart:2'] = [
-            'id' => false,
-            'path' => $path . \DS . 'css' . \DS . 'index' . $z . 'css',
-            'stack' => 20.2
-        ];
-    }
-    if (!isset($_['asset']['panel.type.chart:3'])) {
-        $_['asset']['panel.type.chart:3'] = [
-            'id' => false,
-            'path' => $path . \DS . 'js' . \DS . 'index' . $z . 'js',
-            'stack' => 20.2
-        ];
     }
     $_['asset']['script'][$id] = [
         'id' => false,

@@ -12,6 +12,10 @@ An example page that displays the available charts is available at `http://127.0
 Release Notes
 -------------
 
+### 1.0.1
+
+ - Loaded the chart assets once, globally.
+
 ### 1.0.0
 
  - Initial stable release.
