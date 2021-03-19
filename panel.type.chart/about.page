@@ -1,15 +1,15 @@
 ---
-title: Chart
+title: Panel Chart
 description: Chart GUI for the panel extension.
 author: Taufik Nurrohman
 type: Markdown
-version: 1.0.1
+version: 1.1.0
 
 use:
   '.\lot\x\panel': 1
 ...
 
-![Chart](https://user-images.githubusercontent.com/1669261/107127949-5d311380-68ec-11eb-99d7-106a2c00bcce.png)
+![Panel Chart](https://user-images.githubusercontent.com/1669261/107151431-25ca7180-6995-11eb-8c11-72f530d4539b.png)
 
 ### Features
 

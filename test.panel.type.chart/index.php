@@ -1,4 +1,4 @@
-<?php namespace _\lot\x\panel\route\__test;
+<?php namespace x\panel\route\__test;
 
 // TODO: Move this to a separate extension
 function chart($_) {
@@ -128,7 +128,7 @@ function chart($_) {
         $links[] = $year_current + 1;
     }
     $links = \implode("", \map($links, function($v) use($_, $url) {
-        return '<a href="' . $url . $_['/'] . '/::g::/' . $_['path'] . $url->query('&amp;', [
+        return '<a href="' . $_['/'] . '/::g::/' . $_['path'] . $url->query('&amp;', [
             'year' => $v
         ]) . '">' . \i('Year %d', $v) . '</a>';
     }));

@@ -1,4 +1,4 @@
-(function(win, doc) {
+(function(win, doc, $) {
     let root = doc.documentElement;
     function getStyle(key, node) {
         return win.getComputedStyle(node || root).getPropertyValue(key);
@@ -23,4 +23,13 @@
     Chart.platform.disableCSSInjection = true;
     // <https://stackoverflow.com/a/37089126>
     Chart.scaleService.defaults.radialLinear.ticks.backdropColor = 'rgba(0,0,0,0)';
-})(window, document);
+    function onChange() {
+        let charts = doc.querySelectorAll('.lot\\:chart canvas');
+        charts.length && charts.forEach(chart => {
+            let state = JSON.parse(chart.textContent);
+            chart.textContent = "";
+            new Chart(chart, state || {});
+        });
+    } onChange();
+    $.on('change', onChange);
+})(window, document, _);

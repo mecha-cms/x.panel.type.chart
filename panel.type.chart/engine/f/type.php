@@ -1,8 +1,7 @@
-<?php namespace _\lot\x\panel\type;
+<?php namespace x\panel\type;
 
-function chart(array $value, $key) {
+function chart($value, $key) {
     extract($GLOBALS, \EXTR_SKIP);
-    $id = 'chart:' . $key;
     $state = $value['state'] ?? [];
     $rgba = static function($hex, $a = 1) {
         if (!$hex) {
@@ -90,21 +89,12 @@ function chart(array $value, $key) {
     if (!empty($state['options'])) {
         $state['options']['responsive'] = true;
     }
-    $_['asset']['script'][$id] = [
-        'id' => false,
-        'content' => "new Chart('" . $id . "'," . \json_encode((object) \array_replace([
-            // This key was added only to force this script data to refresh on every F3H change event
-            'hash' => \uniqid()
-        ], $state)) . ");",
-        'stack' => 20.1
-    ];
-    $GLOBALS['_'] = $_;
     $out = [
         0 => $value[0] ?? 'div',
-        1 => $value[1] ?? '<canvas id="' . $id . '"></canvas>',
+        1 => $value[1] ?? '<canvas>' . \htmlspecialchars(\json_encode($state)) . '</canvas>',
         2 => $value[2] ?? []
     ];
-    \_\lot\x\panel\_set_class($out[2], \array_replace([
+    \x\panel\_set_class($out[2], \array_replace([
         'lot' => true,
         'lot:chart' => true,
         'chart:' . ($value['state']['type'] ?? 'line') => true
