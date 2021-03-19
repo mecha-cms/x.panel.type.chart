@@ -12,6 +12,10 @@ An example page that displays the available charts is available at `http://127.0
 Release Notes
 -------------
 
+### main
+
+ - [x] [@mecha-cms/mecha#96](https://github.com/mecha-cms/mecha/issues/96)
+
 ### 1.0.1
 
  - Loaded the chart assets once, globally.
