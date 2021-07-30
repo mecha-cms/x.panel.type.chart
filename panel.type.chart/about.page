@@ -68,12 +68,12 @@ You don’t need to declare the chart type back in the `state` data when using s
         1 => [
             'title' => 'Subject 2',
             'values' => [3, 1, 18],
-            'color' =>
+            'color' => '#00ff00'
         ],
         2 => [
             'title' => 'Subject 3',
             'values' => [6, 11, 8],
-            'color' =>
+            'color' => '#0000ff'
         ]
     ],
     'stack' => 10
